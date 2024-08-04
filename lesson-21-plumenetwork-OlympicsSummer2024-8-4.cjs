@@ -2,7 +2,7 @@ const ethers=require('ethers')
 const axios=require('axios')
 const bulbaswapWETHABI = require('../config/bulbaswapWETHABI.json');
 const bulbaswapNativeRouterABI = require('../config/bulbaswapNativeRouterABI.json');
-const {PrivateKeys$18Wallets,PrivateKeys$4Wallets,yangaina,lovebean}=require('../util/privateKey.cjs');
+const {PrivateKeys$18Wallets,PrivateKeys$4Wallets,地址1,地址2}=require('../util/privateKey.cjs');
 const SWAP_UTIL=require('../util/swaptoken.cjs');
 const {NewPrivatKeys,sleep,formHexData_two,getRandomUniqueIndicesFromLast,walletSendtxData}=require('../util/common.cjs')
 const fakeUa = require('fake-useragent');
@@ -50,7 +50,7 @@ async function QianDAO(wallet){
     
     ];
     // let vote_number=Math.floor(Math.random()*(datas.length)+4);//奥运会每日项目投票数量
-    const vote_number=(wallet.address==yangaina[0]||wallet.address==lovebean[0])?datas.length:Math.floor(Math.random()*(datas.length-4)+4);
+    const vote_number=(wallet.address==地址1||wallet.address==地址2)?datas.length:Math.floor(Math.random()*(datas.length-4)+4);
     console.log(`投票项目数量是：${vote_number}`);
     
     let randNumber_datas=getRandomUniqueIndicesFromLast(datas,datas.length-4);//[0,1,2,3,6,7,5,4]
