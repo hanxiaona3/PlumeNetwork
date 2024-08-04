@@ -2,7 +2,7 @@ const ethers=require('ethers')
 const axios=require('axios')
 const bulbaswapWETHABI = require('../config/bulbaswapWETHABI.json');
 const bulbaswapNativeRouterABI = require('../config/bulbaswapNativeRouterABI.json');
-const {PrivateKeys$18Wallets,yangaina,lovebean}=require('../util/privateKey.cjs');
+const {PrivateKeys$18Wallets,地址1,地址2}=require('../util/privateKey.cjs');
 const SWAP_UTIL=require('../util/swaptoken.cjs');
 const {NewPrivatKeys,sleep,getRandomUniqueIndices,convertNumToHexa,walletSendtxData}=require('../util/common.cjs')
 const fakeUa = require('fake-useragent');
@@ -18,7 +18,7 @@ async function QianDAO(wallet){
     let retries=0;
     // let random_num=[0,1,2,3,4,5,6,7,8,9,a,b,c];
     const random_cypto=['Ethereum','Bitcoin','Arbitrum','EUR/USD','USD/JPY','GBP/USD','Solana','USD/VND','Celestia','USD/HKD','MakerDAO','USD/SGD','Ondo','USD/INR'];
-    const temp_rand=(wallet.address==yangaina[0]||wallet.address==lovebean[0])?random_cypto.length:8;
+    const temp_rand=(wallet.address==地址1||wallet.address==地址2)?random_cypto.length:8;
     const vote_number=Math.floor(Math.random()*(random_cypto.length-temp_rand)+temp_rand);
     console.log(`${new Date().getMonth()+1}月${new Date().getDate()}日`);
     console.log(`投票项目数量是：${vote_number}`);
