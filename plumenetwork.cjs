@@ -1,28 +1,15 @@
-const ethers=require('ethers')
-const axios=require('axios')
+const ethers=require('ethers');
 const bulbaswapWETHABI = require('../config/bulbaswapWETHABI.json');
 const bulbaswapNativeRouterABI = require('../config/bulbaswapNativeRouterABI.json');
-const {PrivateKeys$18Wallets,PrivateKeys$4Wallets}=require('../util/privateKey.cjs');
+const {PrivateKeys$18Wallets}=require('../util/privateKey.cjs');
 const SWAP_UTIL=require('../util/swaptoken.cjs');
 const {NewPrivatKeys,sleep,formHexData,formHexData_two,transactionData,walletSendtxData}=require('../util/common.cjs')
-const fakeUa = require('fake-useragent');
-const { HttpsProxyAgent } = require('https-proxy-agent');
-// const chalk = require("chalk");
-// import chalk from 'chalk';
 
-
-// const holesky_PRC='https://g.w.lavanet.xyz:443/gateway/hol1/rpc-http/a175064ed506e16c12597b7e8d24d73e';//'https://ethereum-holesky.publicnode.com';
-
-
-// const provider=new ethers.JsonRpcProvider(PRC);
-
-//登录网址
-const claim_URL='https://faucet.plumenetwork.xyz/api/faucet';
 const Plume_Testnet_PRC='https://testnet-rpc.plumenetwork.xyz/http';
 const Plume_Testnet_Provider=new ethers.JsonRpcProvider(Plume_Testnet_PRC);//设置链接PRC
 
 //每日签到脚本
-async function QianDAO(wallet,maxRetries=3,timeout=3000){
+async function QianDAO(wallet){
     // console.log(`每天签到。。。。。。。。。。。。。。。。。。。。。`);
     const address=wallet.address;
     const Interacted_contract_Token='0x8Dc5b3f1CcC75604710d9F464e3C5D2dfCAb60d8';
@@ -79,11 +66,8 @@ async function ARC(wallet){
     let wallet_temp=ethers.Wallet.createRandom();
     let address_temp=wallet_temp.address;
     let array_phrase=wallet_temp.mnemonic.phrase.toLocaleUpperCase().split(' ');
-    let wallet_name=array_phrase.find(word =>word.length>4)||''
-    // for (let index = 0; index < array_phrase.length; index++) {
-    //     if (array_phrase[index].length > 4) {wallet_name=array_phrase[index];}     
-    // }
-    // let wallet_name=array_phrase[0]+'AAA';
+    let wallet_name=array_phrase.find(word =>word.length>4)||'';//获得钱包里面的5位字母
+
     let randdata=Math.floor(Math.random()*RWACategory.length);
     let datas=`0xe817e2ae${'0'.repeat(62)}a0${'0'.repeat(62)}e0${'0'.repeat(61)}120${'0'.repeat(63)}${randdata}${'0'.repeat(61)}160${'0'.repeat(63)}${randdata}${formHexData_two(convertToHexa(wallet_name))}${'0'.repeat(63)}44954454d${'0'.repeat(119)}${randdata}${formHexData_two(convertToHexa(wallet_name))}${'0'.repeat(62)}${RWACategory[randdata].hex}`
     const txData = {
