@@ -1,13 +1,6 @@
 const ethers=require('ethers')
-const axios=require('axios')
-const bulbaswapWETHABI = require('../config/bulbaswapWETHABI.json');
-const bulbaswapNativeRouterABI = require('../config/bulbaswapNativeRouterABI.json');
-const {PrivateKeys$18Wallets,地址1,地址2}=require('../util/privateKey.cjs');
-const SWAP_UTIL=require('../util/swaptoken.cjs');
+const {PrivateKeys$18Wallets}=require('../util/privateKey.cjs');
 const {NewPrivatKeys,sleep,getRandomUniqueIndices,convertNumToHexa,walletSendtxData}=require('../util/common.cjs')
-const fakeUa = require('fake-useragent');
-const { HttpsProxyAgent } = require('https-proxy-agent');
-const RPC=require('../config/runnerRPC-1.json');
 
 const Plume_Testnet_PRC='https://testnet-rpc.plumenetwork.xyz/http';
 const Plume_Testnet_Provider=new ethers.JsonRpcProvider(Plume_Testnet_PRC);//设置链接PRC
@@ -18,7 +11,7 @@ async function QianDAO(wallet){
     let retries=0;
     // let random_num=[0,1,2,3,4,5,6,7,8,9,a,b,c];
     const random_cypto=['Ethereum','Bitcoin','Arbitrum','EUR/USD','USD/JPY','GBP/USD','Solana','USD/VND','Celestia','USD/HKD','MakerDAO','USD/SGD','Ondo','USD/INR'];
-    const temp_rand=(wallet.address==地址1||wallet.address==地址2)?random_cypto.length:8;
+    const temp_rand=9;//此值可自行设置，主要考虑是否需要全部投票，防止女巫使用，也可以使用random_cypto.length全部数值，代码自行调整。
     const vote_number=Math.floor(Math.random()*(random_cypto.length-temp_rand)+temp_rand);
     console.log(`${new Date().getMonth()+1}月${new Date().getDate()}日`);
     console.log(`投票项目数量是：${vote_number}`);
