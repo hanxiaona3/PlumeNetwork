@@ -7,17 +7,12 @@ const SWAP_UTIL=require('../util/swaptoken.cjs');
 const {NewPrivatKeys,sleep,formHexData_two,getRandomUniqueIndicesFromLast,walletSendtxData}=require('../util/common.cjs')
 const fakeUa = require('fake-useragent');
 const { HttpsProxyAgent } = require('https-proxy-agent');
-const RPC=require('../config/runnerRPC-1.json');
 
-// const chalk = require("chalk");
-// import chalk from 'chalk';
 
-// const holesky_PRC='https://g.w.lavanet.xyz:443/gateway/hol1/rpc-http/a175064ed506e16c12597b7e8d24d73e';//'https://ethereum-holesky.publicnode.com';
-
-// const provider=new ethers.JsonRpcProvider(PRC);
 
 const Plume_Testnet_PRC='https://testnet-rpc.plumenetwork.xyz/http';
 const Plume_Testnet_Provider=new ethers.JsonRpcProvider(Plume_Testnet_PRC);//设置链接PRC
+
 const date_temp='8月1日奥林匹林';
 const OlympicsSummer2024=`4f6c796d7069637353756d6d657232303234`;
 const MedalCount_MostTotalMedalsAug1=`4d6564616c436f756e742d4d6f7374546f74616c4d6564616c7341756731`;
