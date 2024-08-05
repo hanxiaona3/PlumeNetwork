@@ -16,7 +16,8 @@ async function QianDAO(wallet){
     console.log(`${new Date().getMonth()+1}月${new Date().getDate()}日`);
     console.log(`投票项目数量是：${vote_number}`);
 
-    const randomIndices=getRandomUniqueIndices(random_cypto);
+    const randomIndices=getRandomUniqueIndices(random_cypto);//此步作用是打乱投票的顺序，但是顺序号还需要和random_cypto本身一致，所以得从新做一个数组来保存。比如
+    //random_cypto对应的序号是random_num，randomIndices返回结果可能是[a,c,5,8,9,0,1,3,6,4,2,b,7]
     for (let index = 0; index < vote_number; index++) {
         if (retries>=5) {break;}//跳出循环，说明这个钱包已经做过对应的处理
         console.log(`第${index+1}项目：${random_cypto[randomIndices[index]]}`);
