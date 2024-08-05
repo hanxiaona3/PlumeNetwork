@@ -1,10 +1,11 @@
+//每小时加密货币投票
 const ethers=require('ethers')
-const {PrivateKeys$18Wallets}=require('../util/privateKey.cjs');
-const {NewPrivatKeys,sleep,getRandomUniqueIndices,convertNumToHexa,walletSendtxData}=require('../util/common.cjs')
-
+const {PrivateKeys$18Wallets}=require('./privateKey.cjs');//需要创建一个密钥数组
+const {NewPrivatKeys,sleep,getRandomUniqueIndices,convertNumToHexa,walletSendtxData}=require('./common.cjs')
+//RPC链接
 const Plume_Testnet_PRC='https://testnet-rpc.plumenetwork.xyz/http';
 const Plume_Testnet_Provider=new ethers.JsonRpcProvider(Plume_Testnet_PRC);//设置链接PRC
-
+//投票函数
 async function QianDAO(wallet){
     // console.log(`每天领取测试代币。。。。。。。。。。。。。。。。。。。。。`);
     const Interacted_contract_Token='0x032139f44650481f4d6000c078820B8E734bF253';
@@ -35,7 +36,7 @@ async function QianDAO(wallet){
 
 const main=async(privateKeys)=>{
 
-    // const shuffled_PrivateKeys=NewPrivatKeys(privateKeys);
+    // const shuffled_PrivateKeys=NewPrivatKeys(privateKeys);//打乱数组函数，可以自行写入函数
     for (let index = 0; index < privateKeys.length; index++) {//PrivateKeys$18Wallets.length
         let Plume_wallet=new ethers.Wallet(privateKeys[index],Plume_Testnet_Provider);
         console.log(`第${index+1}个钱包，地址：${Plume_wallet.address}`);
