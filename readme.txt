@@ -7,3 +7,7 @@ Morph项目脚本也基本写完，晚点更新
 16点53分 2024年8月19日
 更新kuma教程
 更新cypto代码至pridictpriceMovement代码中
+
+11点25分 2024年9月2日
+更新竞猜predictPrice多线程脚本
+更新多线程多DApp脚本
