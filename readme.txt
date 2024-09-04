@@ -11,3 +11,7 @@ Morph项目脚本也基本写完，晚点更新
 11点25分 2024年9月2日
 更新竞猜predictPrice多线程脚本
 更新多线程多DApp脚本
+
+17点53分 204年9月4日
+更新竞猜predictPrice多线程脚本，更改为js版本
+删除predictPrice的cjs版本
